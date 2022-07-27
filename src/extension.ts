@@ -1,15 +1,7 @@
 import * as vscode from "vscode";
-import { Credentials } from "./credentials";
-import getBlame from "./utils/getBlame";
-import getSHAArray from "./utils/getSHAArray";
-import getGitAPI from "./utils/vscode/getGitAPI";
-import getPackageInfo from "./utils/getPackageInfo";
-import WatermelonSidebar from "./watermelonSidebar";
-import setLoggedIn from "./utils/vscode/setLoggedIn";
-import getRepoInfo from "./utils/vscode/getRepoInfo";
 import getGitHubUserInfo from "./utils/getGitHubUserInfo";
 import getWebviewOptions from "./utils/vscode/getWebViewOptions";
-import getPRsToPaintPerSHAs from "./utils/vscode/getPRsToPaintPerSHAs";
+import getPRsToPaintPerSHAs from "./utils/vscode/aaagetPRsToPaintPerSHAs";
 import analyticsReporter from "./utils/vscode/reporter";
 import statusBarItem, {
   updateStatusBarItem,
@@ -58,12 +50,7 @@ export async function activate(context: vscode.ExtensionContext) {
   debugLogger(`got gitAPI`);
 
   const provider = new WatermelonSidebar(context, reporter);
-  debugLogger(`created provider`);
-
-  let wmStatusBarItem = statusBarItem();
-  debugLogger(`created wmStatusBarItem`);
-
-  context.subscriptions.push(
+  debugLogger(`cr
     // webview
     vscode.window.registerWebviewViewProvider(
       WatermelonSidebar.viewType,
@@ -124,7 +111,7 @@ export async function activate(context: vscode.ExtensionContext) {
     startLine = undefined,
     endLine = undefined
   ) => {
-    vscode.commands.executeCommand(WATERMELON_SHOW_COMMAND);
+    vscode.commands.executeCommand(WATEdsadfasdfadasRMELON_SHOW_COMMAND);
     provider.sendMessage({
       command: "loading",
     });
